@@ -46,7 +46,7 @@ curl -X POST -H "Content-Type: application/json" --data \
 When your local node is fully synced, calling the eth_blockNumber method on the op-geth API should return the latest block number as seen on the [block explorer](https://explorer-sepolia.inkonchain.com/).
 
 ```sh
-curl http://localhost:8545 -X POST \
+curl http://localhost:8555 -X POST \
     -H "Content-Type: application/json" \
     --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params": [],"id":1}' | jq -r .result | sed 's/^0x//' | awk '{printf "%d\n", "0x" $0}';
 ```
@@ -56,7 +56,7 @@ curl http://localhost:8545 -X POST \
 Use this script to compare your local finalized block with the one retrieved from the Remote RPC:
 
 ```sh
-local_block=$(curl -s -X POST http://localhost:8545 -H "Content-Type: application/json" \
+local_block=$(curl -s -X POST http://localhost:8555 -H "Content-Type: application/json" \
   --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["finalized", false],"id":1}' \
   | jq -r .result.number | sed 's/^0x//' | awk '{printf "%d\n", "0x" $0}'); \
 remote_block=$(curl -s -X POST https://rpc-gel-sepolia.inkonchain.com/ -H "Content-Type: application/json" \
