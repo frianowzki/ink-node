@@ -4,10 +4,10 @@ services:
       context: .
       dockerfile: op-geth/Dockerfile
     ports:
-      - 8545:8545 # RPC
-      - 8546:8546 # websocket
-      - 60606:60606 # P2P TCP (currently unused)
-      - 60606:60606/udp # P2P UDP (currently unused)
+      - 8555:8555 # RPC
+      - 8556:8556 # websocket
+      - 49494:49494 # P2P TCP (currently unused)
+      - 49494:49494/udp # P2P UDP (currently unused)
       - 7301:6060 # metrics
     volumes:
       - ./geth:/data:rw
