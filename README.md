@@ -9,7 +9,7 @@ To run the Ink node, it's required to bring your own L1 Sepolia Node. We suggest
 Create a `.env` file in the root of the repository with the following environment variables, replacing `...` with your node's details:
 
 ```sh
-L1_RPC_URL=https://rpc-gel-sepolia.inkonchain.com/
+L1_RPC_URL=https://1rpc.io/sepolia
 L1_BEACON_URL=...
 ```
 
